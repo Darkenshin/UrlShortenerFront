@@ -23,7 +23,7 @@ function ShortenUrl() {
   const [shortenedUrl, setShortenedUrl] = useState('');
   const { response, error, callApi } = useApiCall();
 
-  const shortenUrl = () => callApi('post', 'http://localhost:8080/api/url/shorten', { fullUrl: inputUrl });
+  const shortenUrl = () => callApi('post', 'http://localhost:8080/api/url/shorten', inputUrl );
 
   return (
     <div>
@@ -46,7 +46,7 @@ function GetFullUrl() {
   const [fullUrl, setFullUrl] = useState('');
   const { response, error, callApi } = useApiCall();
 
-  const getFullUrl = () => callApi('get', `http://localhost:8080/api/url/${inputShortenedUrl}`);
+  const getFullUrl = () => callApi('post', 'http://localhost:8080/api/url/short-url', inputShortenedUrl);
 
   return (
     <div>
